@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Seasons from './Seasons';
+import Loader from './loader'
 
 
 class App extends React.Component {
@@ -9,7 +10,7 @@ class App extends React.Component {
         errorMessage: ''
     };
 
-    componentDidMount(){
+    componentDidMount() {
         window.navigator.geolocation.getCurrentPosition(
         //If we are able to get users location
             position =>{
@@ -23,7 +24,7 @@ class App extends React.Component {
         );
     }
 
-    render() {
+    renderContent(){
         //Error when unablle to find "lat"
         if(this.state.errorMessage && !this.state.lat){
             return <div> Error: {this.state.errorMessage} </div>
@@ -32,9 +33,19 @@ class App extends React.Component {
         if(!this.state.errorMessage && this.state.lat){
             return <Seasons lat={this.state.lat} />
         }
-        return <div>Loading...</div>
+
+        return <Loader message="Please accept location request" />
+    }
+
+    render() {
+        return (
+            <div className="app">
+                {this.renderContent()}
+            </div>
+        )
     }
 }
+
 
 ReactDOM.render(
     <App />,
