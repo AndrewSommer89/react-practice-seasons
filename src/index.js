@@ -1,25 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Seasons from "./Seasons";
+import Seasons from './Seasons';
 
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
+    state = {
+        lat: null,
+        errorMessage: ''
+    };
 
-        //initialize the state
-        this.state = { 
-            lat: null,
-            errorMessage: '',
-        };
-
+    componentDidMount(){
         window.navigator.geolocation.getCurrentPosition(
-            //If we are able to get users location
-            position => {
-                //Update the state of "lat"
+        //If we are able to get users location
+            position =>{
+            //Update the state of "lat"
                 this.setState( { lat: position.coords.latitude } )
             },
-            //If we are unable to get users location
+        //If we are unable to get users location
             (err) => { 
                 this.setState({ errorMessage: err.message});
              }
@@ -33,7 +30,7 @@ class App extends React.Component {
         }
         //Lat is found
         if(!this.state.errorMessage && this.state.lat){
-            return <div>Latitude: {this.state.lat}</div>
+            return <Seasons lat={this.state.lat} />
         }
         return <div>Loading...</div>
     }

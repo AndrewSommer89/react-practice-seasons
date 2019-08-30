@@ -1,0 +1,62 @@
+.icon-top-left {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.icon-top-right {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.icon-bottom-left {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.icon-bottom-right {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.season-display.winter i {
+    color: #36353D;
+}
+
+.season-display.summer i {
+    color: #EDE6E7;
+}
+
+.season-display.fall i {
+    color: #934B48;
+}
+
+.season-display.spring {
+    color: #AA3D1D;
+}
+
+.season-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.winter{
+    background-color: #E1E1E9;
+}
+
+.summer{
+    background-color: #637A4C;
+}
+
+.fall{
+    background-color: #28A001;
+}
+
+.spring{
+    background-color: #D0A968;
+}
